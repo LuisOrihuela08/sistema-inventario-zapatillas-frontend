@@ -1,0 +1,54 @@
+/* Estilo base para los campos de entrada */
+input {
+    transition: all 0.3s ease;
+  }
+  
+  /* Cuando el campo está vacío y no ha sido tocado */
+  input:invalid {
+    border-color: #f44336; /* Rojo para indicar error */
+    box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+  }
+  
+  /* Cuando el campo está vacío pero tocado */
+  input:invalid:focus {
+    border-color: #f44336;
+    outline: none;
+  }
+  
+  /* Cuando el campo es válido y ha sido tocado */
+  input:valid {
+    border-color: #4caf50; /* Verde para indicar éxito */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  /* Cuando el campo está vacío pero es requerido */
+  input:required {
+    outline: none; /* Elimina el borde por defecto del navegador */
+  }
+  
+  /* Estilo para los campos cuando están en foco */
+  input:focus {
+    border-color: #2196f3; /* Azul cuando el campo está en foco */
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+  }
+  
+  /* Para los campos que ya fueron tocados, para darles un estado más visible */
+  input:focus:invalid {
+    border-color: #f44336;
+    box-shadow: 0 0 5px rgba(244, 67, 54, 0.7);
+  }
+  
+  input:focus:valid {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.7);
+  }
+  
+  /* Estilo del mensaje de error, en caso de que no sea válido */
+  input:invalid:after {
+    /*content: "Este campo es obligatorio o tiene un formato incorrecto.";*/
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    margin-top: 5px;
+  }
+  

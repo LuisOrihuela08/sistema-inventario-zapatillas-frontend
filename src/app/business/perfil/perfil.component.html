@@ -1,0 +1,21 @@
+<div class="contenedor">
+    <div class="perfil-content">
+        <div class="cabecera">
+            <h2>Mis datos:</h2>
+        </div>
+        <div class="datos">
+            <div *ngIf="usuarios" class="card-content">
+                <p class="username"><strong>Username:</strong> {{usuarios.username}}</p>
+                <p class="nombre"><strong>Nombre:</strong> {{usuarios.nombre}} </p>
+                <p class="apellido"><strong>Apellidos:</strong> {{usuarios.apellido}}</p>
+                <p class="correo"><strong>Correo:</strong> {{usuarios.correo}}</p>
+                <p class="fecha_nac"><strong>Fecha Nacimiento:</strong> {{usuarios.fecha_nac}}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="perfil-icon">
+       <!-- <i class="fa-solid fa-address-card"></i>-->
+        <img src="https://res.cloudinary.com/dvh3ychvs/image/upload/v1734566573/cld-sample-5.jpg" alt="">
+    </div>
+</div>

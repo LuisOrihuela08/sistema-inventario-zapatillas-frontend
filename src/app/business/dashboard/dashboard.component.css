@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+.iconos i{
+    font-size: 35px;
+}
+p{
+    font-weight: bold;
+    font-family: 'Quicksand';
+}
+h4{
+    color: #007bff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Quicksand';
+}
+.content-pages{
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Quicksand';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.content-pages .content-pages-titulo{
+    color: #007bff;
+    font-weight: bold;
+}
+
+.content-pages .paginas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.content-pages .paginas .web-pages{
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    padding: 25px;
+}
+.content-pages .paginas .web-pages a img{
+    width: 100%;
+}

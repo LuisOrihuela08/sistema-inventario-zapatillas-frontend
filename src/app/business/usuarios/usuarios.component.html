@@ -1,0 +1,58 @@
+<div class="contenedor">
+
+    <div class="titulo" id="titulo">
+        <h1><strong>Panel de Administración de Usuarios - Acceso Exclusivo para Administradores</strong></h1>
+    </div>
+
+    <div class="cabecera" id="cabecera">   
+        <div class="input-busqueda">
+            <input type="search" name="busqueda" placeholder="Ejemplo: Pepe" [(ngModel)]="nombreBuscado" (input)="findUsuarioByNombre()">
+            <button (click)="findUsuarioByNombre()" class="search-btn">🔍</button>
+        </div>
+    </div>
+
+    <div class="tabla-contenedor" id="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Username</th>
+                    <th>Correo</th>
+                    <th>Fecha Nacimiento</th> 
+                    <th>Rol</th> 
+                    <th>Acción</th>      
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios">
+                    <td>{{usuario.id}}</td>
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.apellido}}</td>
+                    <td>{{usuario.username}}</td>
+                    <td>{{usuario.correo}}</td>
+                    <td>{{usuario.fecha_nac}}</td>
+                    <td>{{ getRoles(usuario) }}</td>
+                    <td>
+                        <button (click)="deleteUsuario(usuario.id)">
+                            <i id="trash" class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Mensaje cuando no hay resultados -->
+    <p class="p-not-content" *ngIf="usuarios.length === 0 && nombreBuscado.trim() !== ''">No se encontraron resultados
+        para la marca {{nombreBuscado}}</p>
+    <!--Controles de paginación-->
+    <div class="paginacion">
+        <button (click)="prevPage()" [disabled]="currentPage === 0"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+        <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1">Siguiente <i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+
+
+</div>

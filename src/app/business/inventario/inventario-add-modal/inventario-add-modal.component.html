@@ -1,0 +1,89 @@
+<div class="contenedor">
+    <div class="modal-content">
+        <div class="modal-content-header">
+            <div class="titulo-modal">
+                <h1>Completar todos los campos:</h1>
+            </div>
+            <div class="modal-boton">
+                <a >
+                    <button (click)="cerrarModal()"><i class="fa-solid fa-circle-xmark"></i></button> <!--(click)="cerrarModal()"-->
+                </a>
+            </div>
+        </div>
+        <!--Acuerda de agregar por ejemplo formControlName="marca", ya que sin esto no se ejecutara ninguna accion porque el formulario no reconocera estos campos-->
+        <div class="modal-inputs">
+            <form [formGroup]="inventarioForm" (ngSubmit)="createInventario()">
+                <div class="inputs-compartidos">
+                    <div>
+                        <label for="marca">Marca:</label>
+                        <input formControlName="marca" id="marca" name="marca" type="text" required>
+                    </div>
+                    <div>
+                        <label for="silueta">Silueta:</label>
+                        <input formControlName="silueta" id="silueta" name="silueta" type="text" required>
+                    </div>
+                </div>
+                <div class="inputs-compartidos">
+                    <div>
+                        <label for="colaboracion">Colaboración:</label>
+                        <input formControlName="colaboracion" id="colaboracion" name="colaboracion" type="text" required>
+                    </div>
+                    <div>
+                        <label for="estado_id">Estado:</label>
+                        <input list="opciones" formControlName="nombreEstado" id="estado_id" name="estado_id" (change)=" actualizarEstado($event)" required>
+                        <datalist id="opciones">
+                           <option *ngFor="let estado of estados" [value]="estado.nombreEstado"></option>
+                          </datalist>
+                    </div>
+                </div>
+                <div class="inputs-compartidos">
+                    <div>
+                        <label for="talla">Talla:</label>
+                        <input formControlName="talla" id="talla" name="talla" type="number" required>
+                    </div>
+                    <div>
+                        <label for="colorway">Colorway:</label>
+                        <input formControlName="colorway" id="colorway" name="colorway" type="text" required>
+                    </div>
+                </div>
+                <div class="inputs-compartidos">
+                    <div>
+                        <label for="materiales">Materiales:</label>
+                        <input formControlName="materiales" id="materiales" name="materiales" type="text" required>
+                    </div>
+                    <div>
+                        <label for="cantidad">Cantidad:</label>
+                        <input formControlName="cantidad" id="cantidad" name="cantidad" type="number" required>
+                    </div>
+                </div>
+                <div class="inputs-compartidos">
+                    <div>
+                        <label for="precio">Precio:</label>
+                        <input formControlName="precio" id="precio" name="precio" type="number" required>
+                    </div>
+                    <div>
+                        <label for="fecha_compra">Fecha Compra:</label>
+                        <input formControlName="fecha_compra" id="fecha_compra" name="fecha_compra" type="date"
+                            required>
+                    </div>
+                </div>
+                <div class="inputs-solos">
+                    <label for="comentario">Comentario:</label>
+                    <textarea formControlName="comentario" required name="comentario" id="comentario"
+                        placeholder="Escriba aqui ..."></textarea>
+                </div>
+                <div class="inputs-solos">
+                    <label for="imagen">Imagen:</label>
+                    <input name="imagen" id="imagen" (change)="onImageSelected($event)" type="file" required (change)="onFileChange($event)">
+                    <img *ngIf="imagenUrl" [src]="imagenUrl" alt="Imagen seleccionada" width="100"><!--Este es una condicional, si existe imagen, lo mostrara-->
+                </div>
+                <div class="boton-agregar">
+                    <button type="submit" >Agregar
+                        
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

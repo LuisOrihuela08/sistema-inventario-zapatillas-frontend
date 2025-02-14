@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+/*Estilos del titulo*/
+.contenedor .titulo{
+    padding: 10px;
+}
+.contenedor .titulo h1{
+    font-size: 1.3rem;
+    color: #007bff;
+    padding: 10px;
+}
+/*Estilos de la cabecera*/
+.contenedor .cabecera{
+    display: flex;
+    margin-top: -30px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.contenedor .cabecera input{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 30vh;
+}
+.contenedor .cabecera button{
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.contenedor .cabecera button:hover {
+    cursor: pointer;
+    background-color: #0056b3;
+}
+/*Estilos del contenido del card*/
+.contenedor .card-class{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;    
+}
+.contenedor .card-class .card{
+    width: 300px;
+    height: auto; /* Ajustar para que los cards tengan una altura consistente */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.contenedor .card-class .card img{
+    width: 100%;
+    height: auto;
+}
+.contenedor .card-class .card .card-content{
+    padding: 15px;
+    flex-grow: 1; /* Permite que el contenido crezca hasta llenar el espacio disponible */
+    overflow: hidden; /* Evitar que el contenido se desborde fuera del card */
+    text-align: left; /* Alinear el texto a la izquierda */
+    height: auto;
+}
+.contenedor .card-class .card .card-content p{
+    font-size: 13px;
+    color: gray;
+    text-align: center;
+    /*Lo de abajo es opcional, si en caso se quiere que cuando hay textos largos no se muestre por completo y se vea ...*/
+/*
+    overflow: hidden;
+    /*text-overflow: ellipsis; /* Esto corta el texto y agrega '...' si el contenido es muy largo */
+    /*white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+.contenedor .card-class .card .card-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 0 0 10px 10px;
+    
+}
+
+.contenedor .card-class .card .card-button #trash{
+    color: red;
+}
+.contenedor .card-class .card .card-button #trash:hover{
+    cursor: pointer;
+    color: #b30000;   
+}
+.contenedor .card-class .card .card-button #pencil{
+    color:#ffd700;
+}
+.contenedor .card-class .card .card-button #pencil:hover{
+    cursor: pointer;
+    color: #e6c200;
+}
+.contenedor .paginacion{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+.contenedor .paginacion button{
+    color: #007bff;
+    font-weight: bold;
+    font-family: 'Quicksand';
+}
+.contenedor .paginacion button:hover{
+    cursor: pointer;
+    color: #0056b3;
+}
+.contenedor .paginacion span{
+    font-weight: bold;
+    font-family: 'Quicksand';
+}

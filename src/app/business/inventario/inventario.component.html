@@ -1,0 +1,66 @@
+<div class="contenedor">
+
+    <div class="titulo" id="titulo">
+        <h1><strong>Bienvenido a tu Inventario</strong></h1>
+    </div>
+
+    <div class="cabecera" id="cabecera">
+        <div class="input-busqueda">
+            <input type="search" name="busqueda" placeholder="Ejemplo: Adidas" [(ngModel)]="marcaBuscada"
+                (input)="buscarPorMarca()">
+            <button (click)="buscarPorMarca()" class="search-btn">🔍</button>
+        </div>
+        <div class="agregar-tabas">
+            <button (click)="mostrarModal()" id="button"><i class="fa-solid fa-plus"></i> Agregar tabas</button>
+        </div>
+    </div>
+
+    <div class="card-class" id="card-class">
+        <div *ngFor="let inventario of inventarios" class="card">
+            <img *ngIf="inventario.zapatilla.imagen" [src]="inventario.zapatilla.imagen"
+                alt="Imagen de {{inventario.zapatilla.imagen}}">
+            <div class="card-content">
+                <p class="marca"><strong>Marca:</strong> {{inventario.zapatilla.marca}}</p>
+                <p class="silueta"><strong>Silueta:</strong> {{inventario.zapatilla.silueta}}</p>
+                <p class="colaboracion"><strong>Colaboración:</strong> {{inventario.zapatilla.colaboracion}}</p>
+                <p class="talla"><strong>Talla:</strong>: {{inventario.zapatilla.talla}}</p>
+                <p class="colorway"><strong>Colorway:</strong> {{inventario.zapatilla.colorway}}</p>
+                <p class="materiales"><strong>Materiales:</strong> {{inventario.zapatilla.materiales}}</p>
+                <p class="cantidad"><strong>Cantidad:</strong> {{inventario.cantidad}}</p>
+                <p class="estado"><strong>Estado:</strong> {{inventario.estado.nombreEstado}}</p>
+                <p class="precio"><strong>Precio:</strong> {{inventario.precio}}</p>
+                <p class="comentario"><strong>Comentario:</strong> {{inventario.comentario}}</p>
+                <p class="fecha_compra"><strong>Fecha Compra:</strong> {{inventario.fecha_compra}}</p>
+            </div>
+            <div class="card-button">
+                <strong>Acciones:</strong>
+                <button (click)="eliminarInventario(inventario.id)">
+                    <i id="trash" class="fa-solid fa-trash"></i>
+                </button>
+                <button (click)="mostrarModalEditarInventario(inventario)">
+                    <i id="pencil" class="fa-solid fa-pencil"></i>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Mensaje cuando no hay resultados -->
+    <p class="p-not-content" *ngIf="inventarios.length === 0 && marcaBuscada.trim() !== ''">No se encontraron resultados
+        para la marca {{marcaBuscada}}</p>
+     <!-- Controles de paginación -->
+     <div class="paginacion">
+        <button (click)="prevPage()" [disabled]="currentPage === 0"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+        <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1">Siguiente <i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+</div>
+
+<div class="" *ngIf="isModalAgregarInventarioVisible == true">
+    <app-inventario-add-modal></app-inventario-add-modal>
+</div>
+<div class="" *ngIf="isModalEditarInventarioVisible && inventarioSeleccionado">
+    <app-inventario-update-modal [inventario]="inventarioSeleccionado!"></app-inventario-update-modal>
+</div>
+
+
