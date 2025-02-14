@@ -5,12 +5,12 @@ Este repositorio contiene todo el codigo de desarrollo del frontend para el sist
 Para que este proyecto funcione correctamente se necesita de un backend: https://github.com/LuisOrihuela08/sistema-inventario-zapatillas-backend.git con conexion a una base de datos en PostgreSQL, es necesario ademas registrar los roles de ROLE_ADMIN y ROLE_USER para poder obtener de los privilegios, accesos y vistas que posee un usuario con un rol en especifico.
 
 ## Tecnologias usadas
--- [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
--- [Tailwind CSS Component](https://www.creative-tim.com/twcomponents)
--- [SweetAlert2](https://sweetalert2.github.io/)
--- Jwt-decode: `npm install jwt-decode`
--- Cloudinary: Como servidor de las imágenes
--- [FontAwesome](https://fontawesome.com/)
+- **[Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.**
+- **[Tailwind CSS Component](https://www.creative-tim.com/twcomponents)**
+- **[SweetAlert2](https://sweetalert2.github.io/)**
+- **Jwt-decode: `npm install jwt-decode`**
+- **Cloudinary: Como servidor de las imágenes**
+- **[FontAwesome](https://fontawesome.com/)**
 
 ## Capturas del Sistema
 ## Login
