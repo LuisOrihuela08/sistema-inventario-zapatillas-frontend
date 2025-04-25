@@ -7,7 +7,8 @@ export class Inventario{
     cantidad: number = 0;
     precio: number = 0;
     comentario: string = '';
-    fecha_compra: Date = new Date();
+    //fecha_compra: Date = new Date();
+    fecha_compra: string = new Date().toISOString(); // Ahora es un string
 
     zapatilla: Zapatilla = new Zapatilla();
     usuario: Usuario = new Usuario();

@@ -84,6 +84,12 @@ export class InventarioService {
     return this.http.get('http://localhost:8080/api-inventario/find/marca-zapatilla/' + marca, {headers});
   }
 
+  //Método para buscar inventario por fecha de compra (año)
+  getInventarioByFechaCompra(token: string, anio: number): Observable<any>{
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.get('http://localhost:8080/api-inventario/find/fecha/' + anio, {headers});
+  }
+
   //Método para obtener la cantidad de inventario que tiene un usuario
   getCantidadInventario(token: string): Observable <any>{
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);

@@ -27,6 +27,10 @@
     align-items: center;
     padding: 10px;
 }
+.contenedor .cabecera .input-busqueda{
+    display: flex;
+    gap: 5px;
+}
 .contenedor .cabecera input{
     padding: 10px;
     margin: 10px;

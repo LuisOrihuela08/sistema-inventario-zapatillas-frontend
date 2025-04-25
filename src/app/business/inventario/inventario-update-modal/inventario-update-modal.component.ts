@@ -110,7 +110,8 @@ export class InventarioUpdateModalComponent implements OnInit {
     }
 
     const fechaCompra = new Date(this.form.value.fecha_compra);
-    const fechaFormateada = fechaCompra.toLocaleDateString('eng-GB');// Formato dd/MM/yyyy
+    const fechaFormateada = fechaCompra.toISOString().split('T')[0]; // Formato yyyy-MM-dd y el adecuado
+    //const fechaFormateada = fechaCompra.toLocaleDateString('eng-GB');// Formato dd/MM/yyyy
 
     const formData = new FormData();
     formData.append('inventario_id', this.form.value.inventario_id);

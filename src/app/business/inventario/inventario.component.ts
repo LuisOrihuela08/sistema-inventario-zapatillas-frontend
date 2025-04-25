@@ -22,6 +22,7 @@ export class InventarioComponent implements OnInit, OnDestroy {
   inventarios: Inventario[] = [];
   zapatillas: Zapatilla[] = [];
   marcaBuscada: string = ''; //Esto me va a permitir hacer la busqueda de inventario por Marca de zapatilla
+  anio: number = 0; //Esto me va a permitir hacer la busqueda de inventario por año de compra 
   isModalAgregarInventarioVisible: boolean = false; //Esto una variable para añadirle logica y podras el modal para agregar
   isModalEditarInventarioVisible: boolean = false; //Esto es una variable para que es parte de la logica para ver el modal de editar
   inventarioSeleccionado: Inventario | null = null; 
@@ -175,7 +176,7 @@ export class InventarioComponent implements OnInit, OnDestroy {
   
     if (!this.marcaBuscada.trim()) { 
       //alert('Por favor, ingresa una marca para buscar.'); -> Esto lo estoy eliminando para que cuando le de x del input me lista el inventario
-      this.listAllInventario();
+      this.listAllInventarioPageByUsuario();
       return;
     }
     
@@ -193,5 +194,31 @@ export class InventarioComponent implements OnInit, OnDestroy {
           this.inventarios = []; // Asegurar que se limpie en caso de error
         }
       )  
+  }
+
+  //Método para buscar inventario por fecha de compra (año)
+  buscarPorFechaCompra():void{
+    const token = localStorage.getItem('token');
+
+    if(!token){
+      console.error('No se encontró el token');
+      return;
+    }
+
+    if(!this.anio){
+      this.listAllInventarioPageByUsuario();
+      return;
+    }
+
+    //En caso si se ingresa el año
+    this.inventarioService.getInventarioByFechaCompra(token, this.anio).subscribe(
+      (data: Inventario[]) => {
+        this.inventarios = data;
+      },
+      (error) => {
+        console.error('Error al buscar inventario por fecha de compra', error);
+        this.inventarios = [];
+      }
+    )
   }
 }
