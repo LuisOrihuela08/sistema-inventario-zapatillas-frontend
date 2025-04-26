@@ -6,16 +6,39 @@
 
     <div class="cabecera" id="cabecera">
         <div class="input-busqueda">
-            <div>
-                <input type="search" name="busqueda" placeholder="Ejemplo: Adidas" [(ngModel)]="marcaBuscada"
-                    (input)="buscarPorMarca()">
+            <div class="input-group">
+                <input id="busqueda-marca" type="search" name="busqueda-marca" placeholder=" "
+                    [(ngModel)]="marcaBuscada">
+                <!--dentro del input tambien se puede agregar esto: (input)="buscarPorMarca()" y asi buscaria automaticamente-->
+                <label for="busqueda-marca">Marca</label>
                 <button (click)="buscarPorMarca()" class="search-btn">🔍</button>
             </div>
-            <div>
-                <input type="search" name="busqueda" placeholder="Ejemplo: 2025" [(ngModel)]="anio"
+            <div class="fecha-group">
+                <input type="date" name="fechaInicio" id="fechaInicio" [(ngModel)]="fechaInicio">
+                <input type="date" name="fechaFin" id="fechaFin" [(ngModel)]="fechaFin">
+                <button (click)="buscarInventarioEntreFechas()" class="search-btn">🔍</button>
+            </div>
+            <div class="boton-group">
+                <button (click)="listAllInventarioPageByUsuario('asc')" [ngClass]="{'activo': orden === 'asc'}">
+                    Precio <i class="fa-solid fa-sort-up"></i>
+                </button>
+                <button (click)="listAllInventarioPageByUsuario('desc')" [ngClass]="{'activo': orden === 'desc'}">
+                    Precio <i class="fa-solid fa-sort-down"></i>
+                </button>
+            </div>
+            <div class="limpiador-group">
+                <button (click)="limpiarFiltros()">Limpiar filtros <i class="fa-solid fa-broom"></i></button>
+            </div>
+
+
+            <!-- Esta busqueda no se esta utilizando
+            <div class="input-group">
+                <input id="busqueda-anio" type="search" name="busqueda-anio" placeholder=" " [(ngModel)]="anio"
                     (input)="buscarPorFechaCompra()">
+                <label for="busqueda-anio">Año</label>
                 <button (click)="buscarPorFechaCompra()" class="search-btn">🔍</button>
             </div>
+            -->
         </div>
         <div class="agregar-tabas">
             <button (click)="mostrarModal()" id="button"><i class="fa-solid fa-plus"></i> Agregar tabas</button>
@@ -51,9 +74,12 @@
             </div>
         </div>
     </div>
-    <!-- Mensaje cuando no hay resultados -->
+    <!-- Mensaje cuando no hay resultados para la busqueda de marca-->
     <p class="p-not-content" *ngIf="inventarios.length === 0 && marcaBuscada.trim() !== ''">No se encontraron resultados
         para la marca {{marcaBuscada}}</p>
+    <!-- Mensaje cuando no hay resultados para la busqueda entre fechas-->
+    <p class="p-not-content" *ngIf="inventarios.length === 0 && fechaInicio && fechaFin">No se encontraron resultados
+        entre las fechas {{fechaInicio}} y {{fechaFin}}</p>
     <!-- Controles de paginación -->
     <div class="paginacion">
         <button (click)="prevPage()" [disabled]="currentPage === 0"><i class="fa-solid fa-chevron-left"></i>
