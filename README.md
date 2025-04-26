@@ -23,11 +23,11 @@ Para que este proyecto funcione correctamente se necesita de un backend: https:/
 [![dashboard.png](https://i.postimg.cc/yNmyMVyV/dashboard.png)](https://postimg.cc/VSNtMPhT)
 
 ## Inventario
-[![inventario1.png](https://i.postimg.cc/tTDtg2cw/inventario1.png)](https://postimg.cc/tZZVStpN)
+![Image](https://github.com/user-attachments/assets/b2a4f841-d9d0-4f3d-bbea-98956037dfb4)
 [![inventario2.png](https://i.postimg.cc/Gt2PTvw2/inventario2.png)](https://postimg.cc/1nkVLnzh)
 
 ## Perfil
-[![perfil.png](https://i.postimg.cc/qq5ssg4G/perfil.png)](https://postimg.cc/QKcKs8BB)
+![Image](https://github.com/user-attachments/assets/c7215665-ea43-4fb0-992a-0bb7c17309c2)
 
 ## Gestión de Usuarios -  ROLE_ADMIN
 [![usuarios.png](https://i.postimg.cc/MKnbW0m3/usuarios.png)](https://postimg.cc/nCtQ2D5q)
